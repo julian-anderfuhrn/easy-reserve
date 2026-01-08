@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "appoinments",
     "users",
     "widget_tweaks",
+    "core",
 ]
 
 MIDDLEWARE = [
