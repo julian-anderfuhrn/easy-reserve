@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-50 px-4 py-10">
+    <div class="max-w-6xl mx-auto space-y-8">
+
+        <!-- Header -->
+        <div>
+            <h1 class="text-3xl font-bold text-gray-800">
+                Doctor Dashboard
+            </h1>
+            <p class="text-gray-600 mt-1">
+                Manage your services, availability and appointments.
+            </p>
+        </div>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-xl shadow p-6">
+                <p class="text-sm text-gray-500">Active Services</p>
+                <p class="text-2xl font-bold text-gray-800">0</p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow p-6">
+                <p class="text-sm text-gray-500">Upcoming Appointments</p>
+                <p class="text-2xl font-bold text-gray-800">0</p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow p-6">
+                <p class="text-sm text-gray-500">Patients</p>
+                <p class="text-2xl font-bold text-gray-800">0</p>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <div class="bg-white rounded-xl shadow p-6 space-y-3">
+                <h2 class="text-xl font-semibold text-gray-800">
+                    Services
+                </h2>
+                <p class="text-gray-600">
+                    Create and manage the medical services you offer.
+                </p>
+                <a href="#"
+                    class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
+                    Manage services
+                </a>
+            </div>
+
+            <div class="bg-white rounded-xl shadow p-6 space-y-3">
+                <h2 class="text-xl font-semibold text-gray-800">
+                    Schedule
+                </h2>
+                <p class="text-gray-600">
+                    Define your availability and working hours.
+                </p>
+                <a href="#"
+                    class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
+                    Manage schedule
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Appointments -->
+        <div class="bg-white rounded-xl shadow p-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">
+                Upcoming Appointments
+            </h2>
+
+            <p class="text-gray-500">
+                No appointments scheduled yet.
+            </p>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-50 px-4 py-10">
+    <div class="max-w-6xl mx-auto space-y-8">
+
+        <!-- Header -->
+        <div>
+            <h1 class="text-3xl font-bold text-gray-800">
+                Patient Dashboard
+            </h1>
+            <p class="text-gray-600 mt-1">
+                Book and manage your medical appointments.
+            </p>
+        </div>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-xl shadow p-6">
+                <p class="text-sm text-gray-500">Upcoming Appointments</p>
+                <p class="text-2xl font-bold text-gray-800">0</p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow p-6">
+                <p class="text-sm text-gray-500">Past Appointments</p>
+                <p class="text-2xl font-bold text-gray-800">0</p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow p-6">
+                <p class="text-sm text-gray-500">Available Services</p>
+                <p class="text-2xl font-bold text-gray-800">0</p>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <div class="bg-white rounded-xl shadow p-6 space-y-3">
+                <h2 class="text-xl font-semibold text-gray-800">
+                    Book Appointment
+                </h2>
+                <p class="text-gray-600">
+                    Browse medical services and book a new appointment.
+                </p>
+                <a href="#"
+                   class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
+                    Book now
+                </a>
+            </div>
+
+            <div class="bg-white rounded-xl shadow p-6 space-y-3">
+                <h2 class="text-xl font-semibold text-gray-800">
+                    My Appointments
+                </h2>
+                <p class="text-gray-600">
+                    View and manage your scheduled appointments.
+                </p>
+                <a href="#"
+                   class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
+                    View appointments
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Upcoming -->
+        <div class="bg-white rounded-xl shadow p-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">
+                Upcoming Appointments
+            </h2>
+
+            <p class="text-gray-500">
+                You have no upcoming appointments.
+            </p>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
