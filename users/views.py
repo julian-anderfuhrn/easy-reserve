@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from .forms import RegisterForm
 
 
 def login_view(request):
@@ -21,28 +22,19 @@ def login_view(request):
 
 
 def register(request):
+    if request.user.is_authenticated:
+        return redirect("home")
+
     if request.method == "POST":
-        username = request.POST.get("username")
-        email = request.POST.get("email")
-        password1 = request.POST.get("password1")
-        password2 = request.POST.get("password2")
+        form = RegisterForm(request.POST)
 
-        if password1 != password2:
-            messages.error(request, "Las contraseñas no coinciden")
-            # return redirect("expenses:dashboard")
-
-        if User.objects.filter(username=username).exists():
-            messages.error(request, "El usuario ya existe")
-            return redirect("register")
-
-        user = User.objects.create_user(
-            username=username, email=email, password=password1
-        )
-
-        login(request, user)
-        return redirect("index")
-
-    return render(request, "register.html")
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Account created successfully")
+            return redirect("users:login")
+    else:
+        form = RegisterForm()
+    return render(request, "register.html", {"form": form})
 
 
 def logout_view(request):
