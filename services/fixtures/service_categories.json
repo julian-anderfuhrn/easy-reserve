@@ -1,0 +1,26 @@
+[
+    {
+        "model": "services.servicecategory",
+        "pk": 1,
+        "fields": {
+            "name": "Traumatology",
+            "description": "Bone, muscle and joint treatments"
+        }
+    },
+    {
+        "model": "services.servicecategory",
+        "pk": 2,
+        "fields": {
+            "name": "Ophthalmology",
+            "description": "Eye care and vision services"
+        }
+    },
+    {
+        "model": "services.servicecategory",
+        "pk": 3,
+        "fields": {
+            "name": "Cardiology",
+            "description": "Heart and cardiovascular services"
+        }
+    }
+]

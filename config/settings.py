@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_URL = "users:login"
+LOGIN_REDIRECT_URL = "core:dashboard"
+LOGOUT_REDIRECT_URL = "users:login"
 
 # Application definition
 
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
     "users",
     "widget_tweaks",
     "core",
+    "services",
 ]
 
 MIDDLEWARE = [
