@@ -9,7 +9,6 @@ def home_view(request):
 
 @login_required
 def dashboard_view(request):
-    print(request.user.profile)
     if request.user.profile.role == "PROFESSIONAL":
         return render(request, "dashboard_pro.html")
     else:

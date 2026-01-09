@@ -4,7 +4,7 @@
         "pk": 1,
         "fields": {
             "name": "Traumatology",
-            "description": "Bone, muscle and joint treatments"
+            "description": "Diagnosis and treatment of musculoskeletal injuries and disorders."
         }
     },
     {
@@ -12,7 +12,7 @@
         "pk": 2,
         "fields": {
             "name": "Ophthalmology",
-            "description": "Eye care and vision services"
+            "description": "Medical and surgical care of eye-related conditions."
         }
     },
     {
@@ -20,7 +20,79 @@
         "pk": 3,
         "fields": {
             "name": "Cardiology",
-            "description": "Heart and cardiovascular services"
+            "description": "Diagnosis and treatment of heart and cardiovascular diseases."
+        }
+    },
+    {
+        "model": "services.servicecategory",
+        "pk": 4,
+        "fields": {
+            "name": "Pediatrics",
+            "description": "Medical care focused on infants, children, and adolescents."
+        }
+    },
+    {
+        "model": "services.servicecategory",
+        "pk": 5,
+        "fields": {
+            "name": "Neurology",
+            "description": "Diagnosis and treatment of disorders of the nervous system."
+        }
+    },
+    {
+        "model": "services.servicecategory",
+        "pk": 6,
+        "fields": {
+            "name": "Dermatology",
+            "description": "Diagnosis and treatment of skin, hair, and nail conditions."
+        }
+    },
+    {
+        "model": "services.servicecategory",
+        "pk": 7,
+        "fields": {
+            "name": "Gynecology",
+            "description": "Medical care related to the female reproductive system."
+        }
+    },
+    {
+        "model": "services.servicecategory",
+        "pk": 8,
+        "fields": {
+            "name": "Urology",
+            "description": "Diagnosis and treatment of urinary tract and male reproductive disorders."
+        }
+    },
+    {
+        "model": "services.servicecategory",
+        "pk": 9,
+        "fields": {
+            "name": "Psychiatry",
+            "description": "Diagnosis and treatment of mental health disorders."
+        }
+    },
+    {
+        "model": "services.servicecategory",
+        "pk": 10,
+        "fields": {
+            "name": "Endocrinology",
+            "description": "Diagnosis and treatment of hormonal and metabolic disorders."
+        }
+    },
+    {
+        "model": "services.servicecategory",
+        "pk": 11,
+        "fields": {
+            "name": "Gastroenterology",
+            "description": "Diagnosis and treatment of digestive system disorders."
+        }
+    },
+    {
+        "model": "services.servicecategory",
+        "pk": 12,
+        "fields": {
+            "name": "Orthopedics",
+            "description": "Diagnosis and treatment of bone, joint, and muscle conditions."
         }
     }
 ]
