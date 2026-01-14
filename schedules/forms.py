@@ -6,8 +6,9 @@ from core.forms import COMMON_INPUT_CLASSES
 class SchedulesForm(forms.ModelForm):
     class Meta:
         model = Schedule
-        fields = ["day_of_week", "start_time", "end_time"]
+        fields = ["service", "day_of_week", "start_time", "end_time"]
         widgets = {
+            "service": forms.Select(attrs={"class": COMMON_INPUT_CLASSES}),
             "day_of_week": forms.Select(attrs={"class": COMMON_INPUT_CLASSES}),
             "start_time": forms.TimeInput(
                 attrs={"class": COMMON_INPUT_CLASSES, "type": "time"}

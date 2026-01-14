@@ -1,16 +1,45 @@
-<header class="bg-white shadow">
-    <nav class="container mx-auto p-4 flex justify-between">
+<header class="bg-white shadow-sm sticky top-0 z-50">
+    <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
 
-        <div class="space-x-4">
+        <!-- LOGO / BRAND -->
+        <div class="flex items-center gap-2">
+            <a href="{% url 'core:home' %}" class="text-xl font-bold text-blue-600">
+                EasyReserve
+            </a>
+        </div>
+
+        <!-- NAV LINKS -->
+        <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-700">
+
+            <a href="{% url 'core:home' %}" class="hover:text-blue-600 transition">
+                Home
+            </a>
+
+            <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold transition">
+                Book appointment
+            </a>
 
             {% if user.is_authenticated %}
-            <span>{{ user.username }}</span>
-            <a href="{% url 'users:logout' %}">
+            <a href="{% url 'core:dashboard' %}" class="hover:text-blue-600 transition">
+                Dashboard
+            </a>
+            {% endif %}
+        </div>
+
+        <div class="flex items-center gap-4 text-sm">
+
+            {% if user.is_authenticated and user.profile.is_professional %}
+            <a href="{% url 'core:dashboard' %}" class="font-medium text-gray-700 hover:text-blue-600 transition">
+                Dashboard
+            </a>
+
+            <a href="{% url 'users:logout' %}" class="text-red-600 hover:text-red-700 font-medium transition">
                 Log out
             </a>
             {% else %}
-            <a href="{% url 'users:login' %}">Login</a>
+            <a href="{% url 'users:login' %}" class="text-gray-500 hover:text-gray-700 transition">
+                Professional access
+            </a>
             {% endif %}
-        </div>
     </nav>
 </header>

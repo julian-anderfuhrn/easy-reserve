@@ -47,4 +47,4 @@ class Schedule(models.Model):
             raise ValidationError("start_time must be before end_time")
 
     def __str__(self):
-        return f"{self.owner} - {self.get_day_of_week_display()} ({self.start_time} - {self.end_time})"
+        return f"{self.get_day_of_week_display()} {self.start_time}-{self.end_time}"
