@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto px-4 py-10">
+    <div class="bg-white rounded-xl shadow p-6">
+
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold text-gray-800">
+                My Availability
+            </h1>
+
+            <a href="{% url 'schedules:create' %}"
+                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold transition">
+                + Add Schedule
+            </a>
+        </div>
+
+        {% if object_list %}
+        <div class="overflow-x-auto">
+            <table class="w-full border-collapse">
+                <thead>
+                    <tr class="border-b text-left text-sm text-gray-600">
+                        <th class="py-2">Day</th>
+                        <th class="py-2">Start</th>
+                        <th class="py-2">End</th>
+                        <th class="py-2 text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for schedule in object_list %}
+                    <tr class="border-b last:border-b-0">
+                        <td class="py-3">
+                            {{ schedule.get_day_of_week_display }}
+                        </td>
+                        <td class="py-3">
+                            {{ schedule.start_time }}
+                        </td>
+                        <td class="py-3">
+                            {{ schedule.end_time }}
+                        </td>
+                        <td class="py-3 text-right space-x-3">
+                            <a href="{% url 'schedules:update' schedule.pk %}"
+                                class="text-blue-600 hover:underline">
+                                Edit
+                            </a>
+                            <a href="{% url 'schedules:delete' schedule.pk %}"
+                                class="text-red-600 hover:underline">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <p class="text-gray-600">
+            You haven't added any availability yet.
+        </p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

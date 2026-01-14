@@ -7,10 +7,10 @@ from django.views.generic import (
 )
 from .models import Service
 from .forms import ServiceForm
-from .mixins import DoctorRequiredMixin
+from core.mixins import ProfesionalRequiredMixin
 
 
-class ServiceListView(DoctorRequiredMixin, ListView):
+class ServiceListView(ProfesionalRequiredMixin, ListView):
     model = Service
     template_name = "service_list.html"
     context_object_name = "services"
@@ -19,7 +19,7 @@ class ServiceListView(DoctorRequiredMixin, ListView):
         return Service.objects.filter(owner=self.request.user)
 
 
-class ServiceCreateView(DoctorRequiredMixin, CreateView):
+class ServiceCreateView(ProfesionalRequiredMixin, CreateView):
     model = Service
     form_class = ServiceForm
     template_name = "service_form.html"
@@ -30,7 +30,7 @@ class ServiceCreateView(DoctorRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class ServiceUpdateView(DoctorRequiredMixin, UpdateView):
+class ServiceUpdateView(ProfesionalRequiredMixin, UpdateView):
     model = Service
     form_class = ServiceForm
     template_name = "service_form.html"
@@ -40,7 +40,7 @@ class ServiceUpdateView(DoctorRequiredMixin, UpdateView):
         return Service.objects.filter(owner=self.request.user)
 
 
-class ServiceDeleteView(DoctorRequiredMixin, DeleteView):
+class ServiceDeleteView(ProfesionalRequiredMixin, DeleteView):
     model = Service
     template_name = "service_confirm_delete.html"
     success_url = reverse_lazy("services:list")
