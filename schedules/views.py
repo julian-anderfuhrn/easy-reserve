@@ -8,7 +8,7 @@ from core.mixins import ProfesionalRequiredMixin
 
 class ScheduleListView(ProfesionalRequiredMixin, ListView):
     model = Schedule
-    template_name = "schedule_list.html"
+    template_name = "schedules/schedule_list.html"
     context_object_name = "schedule"
 
     def get_queryset(self):
@@ -18,7 +18,7 @@ class ScheduleListView(ProfesionalRequiredMixin, ListView):
 class ScheduleCreateView(ProfesionalRequiredMixin, CreateView):
     model = Schedule
     form_class = SchedulesForm
-    template_name = "schedule_form.html"
+    template_name = "schedules/schedule_form.html"
     success_url = reverse_lazy("schedules:list")
 
     def form_valid(self, form):
@@ -29,7 +29,7 @@ class ScheduleCreateView(ProfesionalRequiredMixin, CreateView):
 class ScheduleUpdateView(ProfesionalRequiredMixin, UpdateView):
     model = Schedule
     form_class = SchedulesForm
-    template_name = "service_form.html"
+    template_name = "schedules/service_form.html"
     success_url = reverse_lazy("schedules:list")
 
     def get_queryset(self):
@@ -38,7 +38,7 @@ class ScheduleUpdateView(ProfesionalRequiredMixin, UpdateView):
 
 class ScheduleDeleteView(ProfesionalRequiredMixin, DeleteView):
     model = Schedule
-    template_name = "schedule_confirm_delete.html"
+    template_name = "schedules/schedule_confirm_delete.html"
     success_url = reverse_lazy("schedules:list")
 
     def get_queryset(self):

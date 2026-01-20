@@ -7,16 +7,14 @@ class ServiceForm(forms.ModelForm):
     class Meta:
         model = Service
         fields = [
-            "name",
-            "description",
+            "observation",
             "duration_minutes",
             "category",
             "is_active",
         ]
 
         widgets = {
-            "name": forms.TextInput(attrs={"class": COMMON_INPUT_CLASSES}),
-            "description": forms.Textarea(
+            "observation": forms.Textarea(
                 attrs={"class": COMMON_INPUT_CLASSES, "rows": 4}
             ),
             "duration_minutes": forms.NumberInput(

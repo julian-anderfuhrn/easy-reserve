@@ -15,8 +15,7 @@ class ServiceCategory(models.Model):
 
 
 class Service(models.Model):
-    name = models.CharField(max_length=150)
-    description = models.TextField()
+    observation = models.TextField()
     duration_minutes = models.PositiveIntegerField(
         help_text="Duration of the appointment in minutes"
     )
@@ -32,7 +31,7 @@ class Service(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ["name"]
+        ordering = ["category"]
 
     def __str__(self):
-        return f"{self.name} ({self.owner.username})"
+        return f"{self.category} ({self.owner.username})"

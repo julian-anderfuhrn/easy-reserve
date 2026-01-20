@@ -10,6 +10,6 @@ class ServiceCategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ("name", "category", "owner", "is_active")
+    list_display = ("observation", "category", "owner", "is_active")
     list_filter = ("category", "is_active")
-    search_fields = ("name",)
+    search_fields = ("category",)
