@@ -1,4 +1,62 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>availability</h1>
+
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+
+<div class="max-w-5xl mx-auto py-10">
+    <h1 class="text-3xl font-bold mb-6">{{ service.name }}</h1>
+
+    <div id="calendar" class="mb-10"></div>
+
+    <div id="slots" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const calendarEl = document.getElementById("calendar");
+    const slotsEl = document.getElementById("slots");
+
+    fetch("{% url 'appointments:available_days_api' service.id %}")
+        .then(res => res.json())
+        .then(data => {
+            const enabledDays = data.available_dates;
+
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: "dayGridMonth",
+                selectable: true,
+                validRange: {
+                    start: new Date(),
+                    end: new Date(new Date().setMonth(new Date().getMonth() + 1))
+                },
+                dateClick: function(info) {
+                    if (!enabledDays.includes(info.dateStr)) return;
+
+                    fetch(
+                        "{% url 'appointments:available_slots_api' service.id %}?date=" + info.dateStr
+                    )
+                    .then(res => res.json())
+                    .then(data => {
+                        slotsEl.innerHTML = "";
+                        data.slots.forEach(slot => {
+                            slotsEl.innerHTML += `
+                                <button class="bg-green-500 text-white py-2 rounded-lg">
+                                    ${slot}
+                                </button>
+                            `;
+                        });
+                    });
+                },
+                dayCellDidMount: function(info) {
+                    if (!enabledDays.includes(info.date.toISOString().split("T")[0])) {
+                        info.el.classList.add("opacity-30", "pointer-events-none");
+                    }
+                }
+            });
+
+            calendar.render();
+        });
+});
+</script>
+
 {% endblock %}
